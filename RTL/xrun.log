@@ -1,0 +1,62 @@
+xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s003: Started on Jul 21, 2025 at 16:59:15 -03
+xrun
+	IIR_tb.sv
+	IIR.sv
+	-gui
+	-access +rwc
+Recompiling... reason: file './IIR.sv' is newer than expected.
+	expected: Mon Jul 21 16:22:16 2025
+	actual:   Mon Jul 21 16:59:05 2025
+file: IIR_tb.sv
+			$fscanf(x_in, "%d\n", d_in);
+			      |
+xmvlog: *W,NOSYST (IIR_tb.sv,41|9): System function '$fscanf' invoked as a task. Return value will be ignored.
+file: IIR.sv
+	module worklib.iir_filter:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		iir_filter_tb
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                              |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|63): port sizes differ in port connection(32/1) for the instance(iir_filter_tb) .
+	Building instance overlay tables: ....................
+        (y_buf[6] * a[6]) + (y_buf[7] * a[7]) + (y_buf[8] * a[8]);
+                                                     |
+xmelab: *W,BNDMEM (./IIR.sv,69|53): Memory index out of declared bounds.
+ Done
+	Generating native compiled code:
+		worklib.iir_filter:sv <0x6eb03400>
+			streams:  12, words: 13292
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           18      18
+		Scalar wires:         5       -
+		Vectored wires:       3       -
+		Always blocks:        4       4
+		Initial blocks:       4       4
+		Pseudo assignments:   6       -
+		Process Clocks:       1       1
+	Writing initial simulation snapshot: worklib.iir_filter_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm iir_filter_tb.u0.a iir_filter_tb.u0.acc iir_filter_tb.u0.acc_a iir_filter_tb.u0.acc_b iir_filter_tb.u0.b iir_filter_tb.u0.clk iir_filter_tb.u0.i iir_filter_tb.u0.rst_n iir_filter_tb.u0.x_buf iir_filter_tb.u0.x_in iir_filter_tb.u0.x_valid iir_filter_tb.u0.y_buf iir_filter_tb.u0.y_out iir_filter_tb.u0.y_valid
+Created probe 1
+xcelium> run
+Simulation interrupted at 3004294 NS + 0
+xcelium> ^C
+xcelium> exit
+...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	23.09-s003: Exiting on Jul 21, 2025 at 16:59:39 -03  (total: 00:00:24)
