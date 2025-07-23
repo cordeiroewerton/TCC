@@ -1,13 +1,13 @@
 xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s003: Started on Jul 21, 2025 at 16:59:15 -03
+TOOL:	xrun(64)	23.09-s003: Started on Jul 22, 2025 at 21:40:19 -03
 xrun
 	IIR_tb.sv
 	IIR.sv
 	-gui
 	-access +rwc
 Recompiling... reason: file './IIR.sv' is newer than expected.
-	expected: Mon Jul 21 16:22:16 2025
-	actual:   Mon Jul 21 16:59:05 2025
+	expected: Tue Jul 22 21:37:36 2025
+	actual:   Tue Jul 22 21:40:17 2025
 file: IIR_tb.sv
 			$fscanf(x_in, "%d\n", d_in);
 			      |
@@ -22,14 +22,10 @@ file: IIR.sv
 	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
 	                                                              |
 xmelab: *W,CUVMPW (./IIR_tb.sv,8|63): port sizes differ in port connection(32/1) for the instance(iir_filter_tb) .
-	Building instance overlay tables: ....................
-        (y_buf[6] * a[6]) + (y_buf[7] * a[7]) + (y_buf[8] * a[8]);
-                                                     |
-xmelab: *W,BNDMEM (./IIR.sv,69|53): Memory index out of declared bounds.
- Done
+	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.iir_filter:sv <0x6eb03400>
-			streams:  12, words: 13292
+		worklib.iir_filter:sv <0x350cc4ba>
+			streams:  11, words: 10256
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -54,9 +50,13 @@ Created default SHM database waves
 xcelium> probe -create -shm iir_filter_tb.u0.a iir_filter_tb.u0.acc iir_filter_tb.u0.acc_a iir_filter_tb.u0.acc_b iir_filter_tb.u0.b iir_filter_tb.u0.clk iir_filter_tb.u0.i iir_filter_tb.u0.rst_n iir_filter_tb.u0.x_buf iir_filter_tb.u0.x_in iir_filter_tb.u0.x_valid iir_filter_tb.u0.y_buf iir_filter_tb.u0.y_out iir_filter_tb.u0.y_valid
 Created probe 1
 xcelium> run
-Simulation interrupted at 3004294 NS + 0
+Simulation interrupted at 2007131 NS + 0
+xcelium> probe -create -shm iir_filter_tb.d_in iir_filter_tb.d_out
+Created probe 2
+xcelium> run
+Simulation interrupted at 2894207 NS + 2
 xcelium> ^C
 xcelium> exit
 ...Regained control from SimVision
 -------------------------------------
-TOOL:	xrun(64)	23.09-s003: Exiting on Jul 21, 2025 at 16:59:39 -03  (total: 00:00:24)
+TOOL:	xrun(64)	23.09-s003: Exiting on Jul 22, 2025 at 21:44:57 -03  (total: 00:04:38)
