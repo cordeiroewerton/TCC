@@ -1,13 +1,13 @@
 xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s003: Started on Jul 22, 2025 at 21:40:19 -03
+TOOL:	xrun(64)	23.09-s003: Started on Jul 23, 2025 at 20:08:08 -03
 xrun
 	IIR_tb.sv
 	IIR.sv
 	-gui
 	-access +rwc
 Recompiling... reason: file './IIR.sv' is newer than expected.
-	expected: Tue Jul 22 21:37:36 2025
-	actual:   Tue Jul 22 21:40:17 2025
+	expected: Tue Jul 22 21:40:17 2025
+	actual:   Wed Jul 23 20:07:54 2025
 file: IIR_tb.sv
 			$fscanf(x_in, "%d\n", d_in);
 			      |
@@ -47,16 +47,12 @@ xcelium>
 xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
 xcelium> database -open waves -into waves.shm -default
 Created default SHM database waves
-xcelium> probe -create -shm iir_filter_tb.u0.a iir_filter_tb.u0.acc iir_filter_tb.u0.acc_a iir_filter_tb.u0.acc_b iir_filter_tb.u0.b iir_filter_tb.u0.clk iir_filter_tb.u0.i iir_filter_tb.u0.rst_n iir_filter_tb.u0.x_buf iir_filter_tb.u0.x_in iir_filter_tb.u0.x_valid iir_filter_tb.u0.y_buf iir_filter_tb.u0.y_out iir_filter_tb.u0.y_valid
+xcelium> probe -create -shm iir_filter_tb.d_in iir_filter_tb.d_out
 Created probe 1
 xcelium> run
-Simulation interrupted at 2007131 NS + 0
-xcelium> probe -create -shm iir_filter_tb.d_in iir_filter_tb.d_out
-Created probe 2
-xcelium> run
-Simulation interrupted at 2894207 NS + 2
+Simulation interrupted at 4986188 NS + 0
 xcelium> ^C
 xcelium> exit
 ...Regained control from SimVision
 -------------------------------------
-TOOL:	xrun(64)	23.09-s003: Exiting on Jul 22, 2025 at 21:44:57 -03  (total: 00:04:38)
+TOOL:	xrun(64)	23.09-s003: Exiting on Jul 23, 2025 at 20:09:08 -03  (total: 00:01:00)

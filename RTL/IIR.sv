@@ -59,6 +59,6 @@ module iir_filter #(
 
         acc = acc_a - acc_b;
 
-        y_out = acc >>> 8;
+        y_out = acc >>> 14;
     end
 endmodule
