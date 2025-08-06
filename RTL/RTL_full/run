@@ -1,0 +1,3 @@
+#!/bin/csh
+
+xrun IIR_tb.sv IIR.sv -gui -access +rwc
