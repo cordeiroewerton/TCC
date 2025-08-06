@@ -1,5 +1,5 @@
 module iir_filter #(
-    parameter DATA_WIDTH = 32,
+    parameter DATA_WIDTH = 16,
     parameter TAPS_B = 3,
     parameter TAPS_A = 3
 )(
@@ -13,16 +13,16 @@ module iir_filter #(
 
     
     logic signed [DATA_WIDTH-1:0] b[TAPS_B-1:0] = '{
-        55, 111, 55
+        6, 13, 6
         };
     
     logic signed [DATA_WIDTH-1:0] a[TAPS_A-1:0] = '{
-        64, 110, 48
+        8, 13, 6
     };
 
     // Buffer para armazenar entradas e saídas anteriores
     logic signed [DATA_WIDTH-1:0] x_buf[TAPS_B];
-    logic signed [DATA_WIDTH-1:0] y_buf[TAPS_A];  // não precisa armazenar y[n] atual
+    logic signed [DATA_WIDTH-1:0] y_buf[TAPS_A];
 
     logic signed [2*DATA_WIDTH-1:0] acc, acc_a, acc_b;
 

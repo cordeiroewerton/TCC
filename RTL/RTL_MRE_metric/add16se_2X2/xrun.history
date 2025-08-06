@@ -8,3 +8,13 @@ s7(04Aug2025:23:13:48):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access 
 s8(04Aug2025:23:23:19):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
 s9(04Aug2025:23:23:34):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
 s10(04Aug2025:23:24:43):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
+#e11(06Aug2025:08:11:40): source ./xcelium.d/env.d/env.history.06Aug2025_08_11_40
+s11(06Aug2025:08:11:40):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
+#e12(06Aug2025:08:14:46): source ./xcelium.d/env.d/env.history.06Aug2025_08_14_46
+s12(06Aug2025:08:14:46):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
+#e13(06Aug2025:08:16:18): source ./xcelium.d/env.d/env.history.06Aug2025_08_16_18
+s13(06Aug2025:08:16:18):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
+#e14(06Aug2025:09:14:50): source ./xcelium.d/env.d/env.history.06Aug2025_09_14_50
+s14(06Aug2025:09:14:50):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 
+#e15(06Aug2025:12:03:25): source ./xcelium.d/env.d/env.history.06Aug2025_12_03_25
+s15(06Aug2025:12:03:25):  xrun IIR_tb.sv IIR.sv aprox/add16se_2X2.v -gui -access +rwc 

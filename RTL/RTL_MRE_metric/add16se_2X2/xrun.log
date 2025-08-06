@@ -1,83 +1,19 @@
-xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s003: Started on Aug 04, 2025 at 23:24:43 -03
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Aug 06, 2025 at 12:03:25 -03
 xrun
 	IIR_tb.sv
 	IIR.sv
 	aprox/add16se_2X2.v
 	-gui
 	-access +rwc
-Recompiling... reason: file './IIR.sv' is newer than expected.
-	expected: Mon Aug  4 23:13:46 2025
-	actual:   Mon Aug  4 23:24:41 2025
-file: IIR_tb.sv
-			$fscanf(x_in, "%d\n", d_in);
-			      |
-xmvlog: *W,NOSYST (IIR_tb.sv,41|9): System function '$fscanf' invoked as a task. Return value will be ignored.
-file: IIR.sv
-	module worklib.iir_filter:sv
-		errors: 0, warnings: 0
-		Caching library 'worklib' ....... Done
-	Elaborating the design hierarchy:
-	Top level design units:
-		iir_filter_tb
-	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
-	                                                              |
-xmelab: *W,CUVMPW (./IIR_tb.sv,8|63): port sizes differ in port connection(32/1) for the instance(iir_filter_tb) .
-    add16se_2X2 u0(.A(aux[0][15:0]), .B(aux[1][15:0]), .O(aux_sum1[15:0]));
-                                                                 |
-xmelab: *W,CUVMPW (./IIR.sv,68|65): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u1(.A(aux[0][31:16]), .B(aux[1][31:16]), .O(aux_sum1[31:16]));
-                                                                   |
-xmelab: *W,CUVMPW (./IIR.sv,69|67): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u2(.A(aux_sum1[15:0]), .B(aux[2][15:0]), .O(acc_a[15:0]));
-                                                                |
-xmelab: *W,CUVMPW (./IIR.sv,71|64): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u3(.A(aux_sum1[31:16]), .B(aux[2][31:16]), .O(acc_a[31:16]));
-                                                                  |
-xmelab: *W,CUVMPW (./IIR.sv,72|66): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u4(.A(aux[3][15:0]), .B(aux[4][15:0]), .O(aux_sum2[15:0]));
-                                                                 |
-xmelab: *W,CUVMPW (./IIR.sv,74|65): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u5(.A(aux[3][31:16]), .B(aux[4][31:16]), .O(aux_sum2[31:16]));
-                                                                   |
-xmelab: *W,CUVMPW (./IIR.sv,75|67): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u6(.A(aux_sum2[15:0]), .B(aux[5][15:0]), .O(y_out[15:0]));
-                                                                |
-xmelab: *W,CUVMPW (./IIR.sv,77|64): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-    add16se_2X2 u7(.A(aux_sum2[31:16]), .B(aux[5][31:16]), .O(y_out[31:16]));
-                                                                  |
-xmelab: *W,CUVMPW (./IIR.sv,78|66): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.iir_filter:sv <0x59ad4a01>
-			streams:  36, words: 16044
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		               Instances  Unique
-		Modules:              10       3
-		Registers:            24      24
-		Scalar wires:        965       -
-		Expanded wires:      136       8
-		Vectored wires:       19       -
-		Always blocks:         4       4
-		Initial blocks:        4       4
-		Cont. assignments:    48     120
-		Pseudo assignments:   28       -
-		Process Clocks:        1       1
-	Writing initial simulation snapshot: worklib.iir_filter_tb:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 -------------------------------------
 Relinquished control to SimVision...
 xcelium> 
-xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
-xcelium> database -open waves -into waves.shm -default
-Created default SHM database waves
-xcelium> probe -create -shm iir_filter_tb.u0.a iir_filter_tb.u0.acc iir_filter_tb.u0.acc_a iir_filter_tb.u0.acc_b iir_filter_tb.u0.aux iir_filter_tb.u0.aux_sum1 iir_filter_tb.u0.aux_sum2 iir_filter_tb.u0.b iir_filter_tb.u0.clk iir_filter_tb.u0.i iir_filter_tb.u0.rst_n iir_filter_tb.u0.sum_1 iir_filter_tb.u0.sum_2 iir_filter_tb.u0.sum_3 iir_filter_tb.u0.x_buf iir_filter_tb.u0.x_in iir_filter_tb.u0.x_valid iir_filter_tb.u0.y_buf iir_filter_tb.u0.y_out iir_filter_tb.u0.y_valid
-Created probe 1
+xcelium> source /usr/local/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
 xcelium> run
 Simulation stopped via $stop(1) at time 2783 NS + 0
-xcelium> xmsim: *W,NCTERM: Simulation received SIGTERM signal from process 1, user id 0 (/usr/lib/systemd/systemd).
-...Regained control from SimVision
--------------------------------------
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	24.03-s005: Exiting on Aug 06, 2025 at 12:03:44 -03  (total: 00:00:19)

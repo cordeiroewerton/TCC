@@ -1,5 +1,5 @@
 module iir_filter #(
-    parameter DATA_WIDTH = 32,
+    parameter DATA_WIDTH = 16,
     parameter TAPS_B = 3,
     parameter TAPS_A = 3
 )(
@@ -13,11 +13,11 @@ module iir_filter #(
 
     
     logic signed [DATA_WIDTH-1:0] b[TAPS_B-1:0] = '{
-        55, 111, 55
+        6, 13, 6
         };
     
     logic signed [DATA_WIDTH-1:0] a[TAPS_A-1:0] = '{
-        64, 110, 48
+        8, 13, 6
     };
 
     // Buffer para armazenar entradas e saídas anteriores
@@ -65,15 +65,9 @@ module iir_filter #(
         //y = acc_a + acc_b;
     end
 
-    add16se_2X2 u0(.A(aux[0][15:0]), .B(aux[1][15:0]), .O(aux_sum1[15:0]));
-    add16se_2X2 u1(.A(aux[0][31:16]), .B(aux[1][31:16]), .O(aux_sum1[31:16]));
+    add16se_2X2 u0(.A(aux[0]), .B(aux[1]), .O(aux_sum1));
+    add16se_2X2 u2(.A(aux_sum1), .B(aux[2]), .O(acc_a));
 
-    add16se_2X2 u2(.A(aux_sum1[15:0]), .B(aux[2][15:0]), .O(acc_a[15:0]));
-    add16se_2X2 u3(.A(aux_sum1[31:16]), .B(aux[2][31:16]), .O(acc_a[31:16]));
-
-    add16se_2X2 u4(.A(aux[3][15:0]), .B(aux[4][15:0]), .O(aux_sum2[15:0]));
-    add16se_2X2 u5(.A(aux[3][31:16]), .B(aux[4][31:16]), .O(aux_sum2[31:16]));
-
-    add16se_2X2 u6(.A(aux_sum2[15:0]), .B(aux[5][15:0]), .O(y_out[15:0]));
-    add16se_2X2 u7(.A(aux_sum2[31:16]), .B(aux[5][31:16]), .O(y_out[31:16]));
+    add16se_2X2 u4(.A(aux[3]), .B(aux[4]), .O(aux_sum2));
+    add16se_2X2 u6(.A(aux_sum2), .B(aux[5]), .O(y_out));
 endmodule

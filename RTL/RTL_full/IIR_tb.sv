@@ -19,12 +19,12 @@ module iir_filter_tb();
 		clk <= 0;
 		rst_n <= 0;
 		d_in <= 0;
-		x_in = $fopen("/home/jose.cordeiro/Desktop/TCC/Sinais_de_entrada/signal_art.txt", "r"); // Corrigido para '='
+		x_in = $fopen("/home/xmen-admin/Desktop/TCC/Sinais_de_entrada/signal_db.txt", "r"); // Corrigido para '='
 		if (x_in == 0) begin
 			$display("Erro ao abrir o arquivo 'valores.txt'");
 			$finish;
 		end
-		x_out = $fopen("/home/jose.cordeiro/Desktop/TCC/Sinais_de_saida/saida.txt", "w"); // Corrigido para '='
+		x_out = $fopen("/home/xmen-admin/Desktop/TCC/Sinais_de_saida/saida.txt", "w"); // Corrigido para '='
 		if (x_out == 0) begin
 			$display("Erro ao abrir o arquivo 'x_valores_out.txt'");
 			$finish;

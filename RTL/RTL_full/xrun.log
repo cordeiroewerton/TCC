@@ -1,24 +1,66 @@
-xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s003: Started on Aug 05, 2025 at 20:54:13 -03
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Aug 06, 2025 at 15:28:53 -03
 xrun
 	IIR_tb.sv
 	IIR.sv
 	-gui
 	-access +rwc
+Recompiling... reason: file './IIR_tb.sv' is newer than expected.
+	expected: Wed Aug  6 13:34:48 2025
+	actual:   Wed Aug  6 15:28:29 2025
+file: IIR_tb.sv
+			$fscanf(x_in, "%d\n", d_in);
+			      |
+xmvlog: *W,NOSYST (IIR_tb.sv,41|9): System function '$fscanf' invoked as a task. Return value will be ignored.
+	module worklib.iir_filter_tb:sv
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		iir_filter_tb
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                 |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|50): port sizes differ in port connection(32/16) for the instance(iir_filter_tb) .
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                              |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|63): port sizes differ in port connection(32/1) for the instance(iir_filter_tb) .
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                                            |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|77): port sizes differ in port connection(32/16) for the instance(iir_filter_tb) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.iir_filter_tb:sv <0x15162d71>
+			streams:  13, words:  8952
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           18      18
+		Scalar wires:         5       -
+		Vectored wires:       3       -
+		Always blocks:        4       4
+		Initial blocks:       4       4
+		Pseudo assignments:   6       -
+		Process Clocks:       1       1
+	Writing initial simulation snapshot: worklib.iir_filter_tb:sv
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 -------------------------------------
 Relinquished control to SimVision...
 xcelium> 
-xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> source /usr/local/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
 xcelium> database -open waves -into waves.shm -default
 Created default SHM database waves
-xcelium> probe -create -shm iir_filter_tb.u0.a iir_filter_tb.u0.acc iir_filter_tb.u0.acc_a iir_filter_tb.u0.acc_b iir_filter_tb.u0.b iir_filter_tb.u0.clk iir_filter_tb.u0.i iir_filter_tb.u0.rst_n iir_filter_tb.u0.x_buf iir_filter_tb.u0.x_in iir_filter_tb.u0.x_valid iir_filter_tb.u0.y_buf iir_filter_tb.u0.y_out iir_filter_tb.u0.y_valid
+xcelium> probe -create -shm iir_filter_tb.clk iir_filter_tb.d_in iir_filter_tb.d_out iir_filter_tb.rst_n iir_filter_tb.x_in iir_filter_tb.x_out iir_filter_tb.x_read iir_filter_tb.y_valid
 Created probe 1
 xcelium> run
-Simulation stopped via $stop(1) at time 2783 NS + 0
+Open failed on file "/home/xmen-admin/Desktop/TCC/Sinais_de_entrada/signal_db.txt". No such file or directory
+Erro ao abrir o arquivo 'valores.txt'
+Simulation complete via $finish(1) at time 0 FS + 0
+./IIR_tb.sv:25 			$finish;
 xcelium> ^C
 xcelium> exit
 ...Regained control from SimVision
 -------------------------------------
-TOOL:	xrun(64)	23.09-s003: Exiting on Aug 05, 2025 at 20:55:35 -03  (total: 00:01:22)
+TOOL:	xrun(64)	24.03-s005: Exiting on Aug 06, 2025 at 15:29:24 -03  (total: 00:00:31)
