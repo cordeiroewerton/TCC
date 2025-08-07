@@ -1,0 +1,85 @@
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Aug 06, 2025 at 13:02:21 -03
+xrun
+	IIR_tb.sv
+	IIR.sv
+	aprox/add16se_32T.v
+	-gui
+	-access +rwc
+file: IIR_tb.sv
+			$fscanf(x_in, "%d\n", d_in);
+			      |
+xmvlog: *W,NOSYST (IIR_tb.sv,41|9): System function '$fscanf' invoked as a task. Return value will be ignored.
+	module worklib.iir_filter_tb:sv
+		errors: 0, warnings: 1
+file: IIR.sv
+	module worklib.iir_filter:sv
+		errors: 0, warnings: 0
+file: aprox/add16se_32T.v
+	module worklib.add16se_32T:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		iir_filter_tb
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                 |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|50): port sizes differ in port connection(32/16) for the instance(iir_filter_tb) .
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                              |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|63): port sizes differ in port connection(32/1) for the instance(iir_filter_tb) .
+	iir_filter u0(.clk(clk), .rst_n(rst_n), .x_in(d_in), .x_valid(1),.y_out(d_out), .y_valid(y_valid));
+	                                                                            |
+xmelab: *W,CUVMPW (./IIR_tb.sv,8|77): port sizes differ in port connection(32/16) for the instance(iir_filter_tb) .
+    add16se_32T u0(.A(aux[0]), .B(aux[1]), .O(aux_sum1));
+                                                     |
+xmelab: *W,CUVMPW (./IIR.sv,68|53): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
+    add16se_32T u2(.A(aux_sum1), .B(aux[2]), .O(acc_a));
+                                                    |
+xmelab: *W,CUVMPW (./IIR.sv,69|52): port sizes differ in port connection(32/17) for the instance(iir_filter_tb.u0) .
+    add16se_32T u4(.A(aux[3]), .B(aux[4]), .O(aux_sum2));
+                                                     |
+xmelab: *W,CUVMPW (./IIR.sv,71|53): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
+    add16se_32T u6(.A(aux_sum2), .B(aux[5]), .O(y_out));
+                                                    |
+xmelab: *W,CUVMPW (./IIR.sv,72|52): port sizes differ in port connection(16/17) for the instance(iir_filter_tb.u0) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.add16se_32T:v <0x00607474>
+			streams:   7, words:  6692
+		worklib.iir_filter:sv <0x592eeb67>
+			streams:  26, words: 12840
+		worklib.iir_filter_tb:sv <0x72f8a15b>
+			streams:  13, words:  8952
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		               Instances  Unique
+		Modules:               6       3
+		Registers:            24      24
+		Scalar wires:        289       -
+		Expanded wires:       68       4
+		Vectored wires:       11       -
+		Always blocks:         4       4
+		Initial blocks:        4       4
+		Cont. assignments:    20      71
+		Pseudo assignments:   18       -
+		Process Clocks:        1       1
+	Writing initial simulation snapshot: worklib.iir_filter_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm iir_filter_tb.clk iir_filter_tb.d_in iir_filter_tb.d_out iir_filter_tb.rst_n iir_filter_tb.x_in iir_filter_tb.x_out iir_filter_tb.x_read iir_filter_tb.y_valid
+Created probe 1
+xcelium> run
+Simulation stopped via $stop(1) at time 2783 NS + 0
+xcelium> ^C
+xcelium> exit
+...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	24.03-s005: Exiting on Aug 06, 2025 at 13:02:47 -03  (total: 00:00:26)

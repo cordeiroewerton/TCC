@@ -1,0 +1,25 @@
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Aug 06, 2025 at 12:59:46 -03
+xrun
+	IIR_tb.sv
+	IIR.sv
+	aprox/add16se_3BD.v
+	-gui
+	-access +rwc
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm iir_filter_tb.clk iir_filter_tb.d_in iir_filter_tb.d_out iir_filter_tb.rst_n iir_filter_tb.x_in iir_filter_tb.x_out iir_filter_tb.x_read iir_filter_tb.y_valid
+Created probe 1
+xcelium> run
+Simulation stopped via $stop(1) at time 2783 NS + 0
+xcelium> ^C
+xcelium> exit
+...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	24.03-s005: Exiting on Aug 06, 2025 at 13:00:26 -03  (total: 00:00:40)

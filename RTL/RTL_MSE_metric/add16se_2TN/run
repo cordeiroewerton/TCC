@@ -1,0 +1,3 @@
+#!/bin/csh
+
+xrun IIR_tb.sv IIR.sv aprox/add16se_2TN.v -gui -access +rwc
